@@ -1,0 +1,918 @@
+
+
+Started GET "/" for 127.0.0.1 at 2011-12-28 18:41:48 -0500
+  Processing by UserController#index as HTML
+Completed 500 Internal Server Error in 1ms
+
+ActiveRecord::StatementInvalid (Could not find table 'users'):
+  app/controllers/user_controller.rb:34:in `new'
+  app/controllers/user_controller.rb:34:in `findUser'
+  app/controllers/user_controller.rb:4:in `index'
+
+Rendered /usr/local/Cellar/ruby/1.9.3-p0/lib/ruby/gems/1.9.1/gems/actionpack-3.1.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /usr/local/Cellar/ruby/1.9.3-p0/lib/ruby/gems/1.9.1/gems/actionpack-3.1.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+Rendered /usr/local/Cellar/ruby/1.9.3-p0/lib/ruby/gems/1.9.1/gems/actionpack-3.1.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (5.9ms)
+  [1m[36m (2.1ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (1.4ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35m (1.1ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateTasks (20111104003952)
+  [1m[35m (0.4ms)[0m  CREATE TABLE "tasks" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "alignment_sequence" varchar(255), "base_sequence1" varchar(255), "base_sequence2" varchar(255), "uid" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20111104003952')[0m
+Migrating to CreateUsers (20111111024906)
+  [1m[35m (0.4ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "lname" varchar(255), "fname" varchar(255), "email" varchar(255), "pswd" varchar(255), "organization" varchar(255), "org_address" varchar(255), "org_pcode" varchar(255), "activesess" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20111111024906')[0m
+Migrating to CreateMessages (20111111025056)
+  [1m[35m (0.3ms)[0m  CREATE TABLE "messages" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255), "msg" text, "uid" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20111111025056')[0m
+  [1m[35m (0.3ms)[0m  select sqlite_version(*)
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("messages")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("tasks")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("users")
+
+
+Started GET "/" for 127.0.0.1 at 2011-12-28 18:45:29 -0500
+  Processing by UserController#index as HTML
+  [1m[36mSQL (6.5ms)[0m  [1mINSERT INTO "users" ("activesess", "created_at", "email", "fname", "lname", "org_address", "org_pcode", "organization", "pswd", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["activesess", "g_5727345458207133"], ["created_at", Wed, 28 Dec 2011 23:45:30 UTC +00:00], ["email", nil], ["fname", "Guest"], ["lname", nil], ["org_address", nil], ["org_pcode", nil], ["organization", nil], ["pswd", nil], ["updated_at", Wed, 28 Dec 2011 23:45:30 UTC +00:00]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE (activesess = 'g_5727345458207133') LIMIT 1
+Rendered user/index.html.erb within layouts/application (3.7ms)
+Compiled application.css  (1ms)  (pid 47530)
+Compiled message.css  (6ms)  (pid 47530)
+Compiled task.css  (1ms)  (pid 47530)
+Compiled user.css  (1ms)  (pid 47530)
+Compiled application.js  (5ms)  (pid 47530)
+Compiled jquery.js  (2ms)  (pid 47530)
+Compiled jquery_ujs.js  (0ms)  (pid 47530)
+Compiled message.js  (71ms)  (pid 47530)
+Compiled task.js  (69ms)  (pid 47530)
+Compiled user.js  (95ms)  (pid 47530)
+Completed 200 OK in 396ms (Views: 372.8ms | ActiveRecord: 7.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2011-12-28 18:45:30 -0500
+Served asset /application.css - 200 OK (4ms)
+
+
+Started GET "/assets/task.css?body=1" for 127.0.0.1 at 2011-12-28 18:45:30 -0500
+Served asset /task.css - 200 OK (7ms)
+
+
+Started GET "/assets/message.css?body=1" for 127.0.0.1 at 2011-12-28 18:45:30 -0500
+Served asset /message.css - 200 OK (6ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2011-12-28 18:45:30 -0500
+Served asset /jquery.js - 200 OK (8ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2011-12-28 18:45:30 -0500
+Served asset /jquery_ujs.js - 200 OK (4ms)
+
+
+Started GET "/assets/message.js?body=1" for 127.0.0.1 at 2011-12-28 18:45:30 -0500
+Served asset /message.js - 200 OK (7ms)
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2011-12-28 18:45:30 -0500
+Served asset /user.css - 200 OK (3ms)
+
+
+Started GET "/assets/task.js?body=1" for 127.0.0.1 at 2011-12-28 18:45:30 -0500
+Served asset /task.js - 200 OK (5ms)
+
+
+Started GET "/assets/user.js?body=1" for 127.0.0.1 at 2011-12-28 18:45:30 -0500
+Served asset /user.js - 200 OK (4ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2011-12-28 18:45:30 -0500
+Served asset /application.js - 200 OK (6ms)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2011-12-28 18:45:38 -0500
+
+SyntaxError (/private/tmp/riviere/source/rb/www/riviere_rails/app/controllers/task_controller.rb:76: syntax error, unexpected '<', expecting ')'
+			id_array[i]=id_array[i].split(<"</Id>")[0].to_s
+			                               ^
+/private/tmp/riviere/source/rb/www/riviere_rails/app/controllers/task_controller.rb:76: syntax error, unexpected ')', expecting keyword_end
+			id_array[i]=id_array[i].split(<"</Id>")[0].to_s
+			                                       ^
+/private/tmp/riviere/source/rb/www/riviere_rails/app/controllers/task_controller.rb:109: syntax error, unexpected '<', expecting ')'
+		id_array[i]=id_array[i].split(<"</GBSeq_locus>")[0].to_s
+		                               ^
+/private/tmp/riviere/source/rb/www/riviere_rails/app/controllers/task_controller.rb:109: syntax error, unexpected ')', expecting keyword_end
+		id_array[i]=id_array[i].split(<"</GBSeq_locus>")[0].to_s
+		                                                ^
+/private/tmp/riviere/source/rb/www/riviere_rails/app/controllers/task_controller.rb:116: syntax error, unexpected '<', expecting ')'
+		id_array[i]=id_array[i].split(<"</GBSeq_sequence>")[0].to_s
+		                               ^
+/private/tmp/riviere/source/rb/www/riviere_rails/app/controllers/task_controller.rb:116: syntax error, unexpected ')', expecting keyword_end
+		id_array[i]=id_array[i].split(<"</GBSeq_sequence>")[0].to_s
+		                                                   ^):
+  
+
+Rendered /usr/local/Cellar/ruby/1.9.3-p0/lib/ruby/gems/1.9.1/gems/actionpack-3.1.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /usr/local/Cellar/ruby/1.9.3-p0/lib/ruby/gems/1.9.1/gems/actionpack-3.1.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+Rendered /usr/local/Cellar/ruby/1.9.3-p0/lib/ruby/gems/1.9.1/gems/actionpack-3.1.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (27.8ms)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2011-12-28 18:52:49 -0500
+  Processing by TaskController#history as HTML
+  [1m[36m (0.1ms)[0m  [1mSELECT 1 FROM "users" WHERE (activesess = 'g_5727345458207133') LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE (activesess = 'g_5727345458207133') LIMIT 1
+  [1m[36mTask Load (0.2ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE (uid = '1')[0m
+Rendered task/history.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 61ms (Views: 25.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2011-12-28 18:52:49 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2011-12-28 18:52:49 -0500
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/message.css?body=1" for 127.0.0.1 at 2011-12-28 18:52:49 -0500
+Served asset /message.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2011-12-28 18:52:49 -0500
+Served asset /user.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/task.css?body=1" for 127.0.0.1 at 2011-12-28 18:52:49 -0500
+Served asset /task.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2011-12-28 18:52:49 -0500
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/message.js?body=1" for 127.0.0.1 at 2011-12-28 18:52:49 -0500
+Served asset /message.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2011-12-28 18:52:49 -0500
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/task.js?body=1" for 127.0.0.1 at 2011-12-28 18:52:49 -0500
+Served asset /task.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/user.js?body=1" for 127.0.0.1 at 2011-12-28 18:52:49 -0500
+Served asset /user.js - 304 Not Modified (0ms)
+
+
+Started GET "/index" for 127.0.0.1 at 2011-12-28 18:52:52 -0500
+  Processing by UserController#index as HTML
+  [1m[35m (0.1ms)[0m  SELECT 1 FROM "users" WHERE (activesess = 'g_5727345458207133') LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE (activesess = 'g_5727345458207133') LIMIT 1[0m
+Rendered user/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 23ms (Views: 7.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2011-12-28 18:52:52 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/message.css?body=1" for 127.0.0.1 at 2011-12-28 18:52:52 -0500
+Served asset /message.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2011-12-28 18:52:52 -0500
+Served asset /user.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/task.css?body=1" for 127.0.0.1 at 2011-12-28 18:52:52 -0500
+Served asset /task.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2011-12-28 18:52:52 -0500
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/message.js?body=1" for 127.0.0.1 at 2011-12-28 18:52:52 -0500
+Served asset /message.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2011-12-28 18:52:52 -0500
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/task.js?body=1" for 127.0.0.1 at 2011-12-28 18:52:52 -0500
+Served asset /task.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2011-12-28 18:52:52 -0500
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/user.js?body=1" for 127.0.0.1 at 2011-12-28 18:52:52 -0500
+Served asset /user.js - 304 Not Modified (0ms)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2011-12-28 18:52:53 -0500
+  Processing by TaskController#history as HTML
+  [1m[35m (0.1ms)[0m  SELECT 1 FROM "users" WHERE (activesess = 'g_5727345458207133') LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE (activesess = 'g_5727345458207133') LIMIT 1[0m
+  [1m[35mTask Load (0.1ms)[0m  SELECT "tasks".* FROM "tasks" WHERE (uid = '1')
+Rendered task/history.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 48ms (Views: 5.6ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/task.css?body=1" for 127.0.0.1 at 2011-12-28 18:52:53 -0500
+Served asset /task.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2011-12-28 18:52:53 -0500
+Served asset /user.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2011-12-28 18:52:53 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2011-12-28 18:52:53 -0500
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2011-12-28 18:52:53 -0500
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/message.css?body=1" for 127.0.0.1 at 2011-12-28 18:52:53 -0500
+Served asset /message.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/message.js?body=1" for 127.0.0.1 at 2011-12-28 18:52:53 -0500
+Served asset /message.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/user.js?body=1" for 127.0.0.1 at 2011-12-28 18:52:53 -0500
+Served asset /user.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2011-12-28 18:52:53 -0500
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/task.js?body=1" for 127.0.0.1 at 2011-12-28 18:52:53 -0500
+Served asset /task.js - 304 Not Modified (0ms)
+
+
+Started GET "/newtask" for 127.0.0.1 at 2011-12-28 18:52:56 -0500
+  Processing by TaskController#new as HTML
+Rendered task/new.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 8ms (Views: 7.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2011-12-28 18:52:56 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/message.css?body=1" for 127.0.0.1 at 2011-12-28 18:52:57 -0500
+Served asset /message.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/task.css?body=1" for 127.0.0.1 at 2011-12-28 18:52:57 -0500
+Served asset /task.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2011-12-28 18:52:57 -0500
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2011-12-28 18:52:57 -0500
+Served asset /user.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2011-12-28 18:52:57 -0500
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/message.js?body=1" for 127.0.0.1 at 2011-12-28 18:52:57 -0500
+Served asset /message.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/user.js?body=1" for 127.0.0.1 at 2011-12-28 18:52:57 -0500
+Served asset /user.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/task.js?body=1" for 127.0.0.1 at 2011-12-28 18:52:57 -0500
+Served asset /task.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2011-12-28 18:52:57 -0500
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/task/search?utf8=%E2%9C%93&org=&commit=Search" for 127.0.0.1 at 2011-12-28 18:53:06 -0500
+  Processing by TaskController#search as HTML
+  Parameters: {"utf8"=>"✓", "org"=>"", "commit"=>"Search"}
+Redirected to http://localhost:3000/newtask?getseq=7
+Completed 302 Found in 1ms
+
+
+Started GET "/newtask?getseq=7" for 127.0.0.1 at 2011-12-28 18:53:06 -0500
+  Processing by TaskController#new as HTML
+  Parameters: {"getseq"=>"7"}
+Rendered task/new.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 6ms (Views: 5.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2011-12-28 18:53:06 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/message.css?body=1" for 127.0.0.1 at 2011-12-28 18:53:06 -0500
+Served asset /message.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/task.css?body=1" for 127.0.0.1 at 2011-12-28 18:53:06 -0500
+Served asset /task.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2011-12-28 18:53:06 -0500
+Served asset /user.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2011-12-28 18:53:06 -0500
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2011-12-28 18:53:06 -0500
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/message.js?body=1" for 127.0.0.1 at 2011-12-28 18:53:06 -0500
+Served asset /message.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/task.js?body=1" for 127.0.0.1 at 2011-12-28 18:53:06 -0500
+Served asset /task.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/user.js?body=1" for 127.0.0.1 at 2011-12-28 18:53:06 -0500
+Served asset /user.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2011-12-28 18:53:06 -0500
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/task/search?utf8=%E2%9C%93&org=&commit=Search" for 127.0.0.1 at 2011-12-28 18:53:15 -0500
+  Processing by TaskController#search as HTML
+  Parameters: {"utf8"=>"✓", "org"=>"", "commit"=>"Search"}
+Redirected to http://localhost:3000/newtask?getseq=0
+Completed 302 Found in 0ms
+
+
+Started GET "/newtask?getseq=0" for 127.0.0.1 at 2011-12-28 18:53:15 -0500
+  Processing by TaskController#new as HTML
+  Parameters: {"getseq"=>"0"}
+Rendered task/new.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 6ms (Views: 6.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2011-12-28 18:53:15 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/message.css?body=1" for 127.0.0.1 at 2011-12-28 18:53:15 -0500
+Served asset /message.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2011-12-28 18:53:15 -0500
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2011-12-28 18:53:15 -0500
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/task.css?body=1" for 127.0.0.1 at 2011-12-28 18:53:15 -0500
+Served asset /task.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2011-12-28 18:53:15 -0500
+Served asset /user.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/message.js?body=1" for 127.0.0.1 at 2011-12-28 18:53:15 -0500
+Served asset /message.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/task.js?body=1" for 127.0.0.1 at 2011-12-28 18:53:15 -0500
+Served asset /task.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2011-12-28 18:53:15 -0500
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/user.js?body=1" for 127.0.0.1 at 2011-12-28 18:53:15 -0500
+Served asset /user.js - 304 Not Modified (0ms)
+
+
+Started GET "/task/search?utf8=%E2%9C%93&org=&commit=Search" for 127.0.0.1 at 2011-12-28 18:53:15 -0500
+  Processing by TaskController#search as HTML
+  Parameters: {"utf8"=>"✓", "org"=>"", "commit"=>"Search"}
+Redirected to http://localhost:3000/newtask?getseq=1
+Completed 302 Found in 0ms
+
+
+Started GET "/newtask?getseq=1" for 127.0.0.1 at 2011-12-28 18:53:15 -0500
+  Processing by TaskController#new as HTML
+  Parameters: {"getseq"=>"1"}
+Rendered task/new.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 7ms (Views: 6.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2011-12-28 18:53:15 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2011-12-28 18:53:15 -0500
+Served asset /user.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2011-12-28 18:53:15 -0500
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/task.css?body=1" for 127.0.0.1 at 2011-12-28 18:53:15 -0500
+Served asset /task.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/message.css?body=1" for 127.0.0.1 at 2011-12-28 18:53:15 -0500
+Served asset /message.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/message.js?body=1" for 127.0.0.1 at 2011-12-28 18:53:15 -0500
+Served asset /message.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/user.js?body=1" for 127.0.0.1 at 2011-12-28 18:53:15 -0500
+Served asset /user.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2011-12-28 18:53:15 -0500
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/task.js?body=1" for 127.0.0.1 at 2011-12-28 18:53:16 -0500
+Served asset /task.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2011-12-28 18:53:16 -0500
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/task/create?utf8=%E2%9C%93&seq1=aacc&seq2=ac&commit=Align" for 127.0.0.1 at 2011-12-28 18:53:31 -0500
+  Processing by TaskController#create as HTML
+  Parameters: {"utf8"=>"✓", "seq1"=>"aacc", "seq2"=>"ac", "commit"=>"Align"}
+  [1m[36m (0.1ms)[0m  [1mSELECT 1 FROM "users" WHERE (activesess = 'g_5727345458207133') LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE (activesess = 'g_5727345458207133') LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "tasks" ("alignment_sequence", "base_sequence1", "base_sequence2", "created_at", "uid", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["alignment_sequence", "aacc,a--c"], ["base_sequence1", "aacc"], ["base_sequence2", "ac"], ["created_at", Wed, 28 Dec 2011 23:53:31 UTC +00:00], ["uid", "1"], ["updated_at", Wed, 28 Dec 2011 23:53:31 UTC +00:00]]
+Redirected to http://localhost:3000/task/history
+Completed 302 Found in 48ms
+
+
+Started GET "/task/history" for 127.0.0.1 at 2011-12-28 18:53:31 -0500
+  Processing by TaskController#history as HTML
+  [1m[35m (0.1ms)[0m  SELECT 1 FROM "users" WHERE (activesess = 'g_5727345458207133') LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE (activesess = 'g_5727345458207133') LIMIT 1[0m
+  [1m[35mTask Load (0.2ms)[0m  SELECT "tasks".* FROM "tasks" WHERE (uid = '1')
+Rendered task/history.html.erb within layouts/application (6.5ms)
+Completed 200 OK in 31ms (Views: 11.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2011-12-28 18:53:32 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/message.css?body=1" for 127.0.0.1 at 2011-12-28 18:53:32 -0500
+Served asset /message.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2011-12-28 18:53:32 -0500
+Served asset /user.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2011-12-28 18:53:32 -0500
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/task.css?body=1" for 127.0.0.1 at 2011-12-28 18:53:32 -0500
+Served asset /task.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2011-12-28 18:53:32 -0500
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/message.js?body=1" for 127.0.0.1 at 2011-12-28 18:53:32 -0500
+Served asset /message.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/task.js?body=1" for 127.0.0.1 at 2011-12-28 18:53:32 -0500
+Served asset /task.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2011-12-28 18:53:32 -0500
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/user.js?body=1" for 127.0.0.1 at 2011-12-28 18:53:32 -0500
+Served asset /user.js - 304 Not Modified (0ms)
+
+
+Started GET "/contact" for 127.0.0.1 at 2011-12-28 18:53:41 -0500
+  Processing by MessageController#contact as HTML
+  [1m[36m (0.1ms)[0m  [1mSELECT 1 FROM "users" WHERE (activesess = 'g_5727345458207133') LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE (activesess = 'g_5727345458207133') LIMIT 1
+Rendered message/contact.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 25ms (Views: 14.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2011-12-28 18:53:41 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/message.css?body=1" for 127.0.0.1 at 2011-12-28 18:53:41 -0500
+Served asset /message.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/task.css?body=1" for 127.0.0.1 at 2011-12-28 18:53:41 -0500
+Served asset /task.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2011-12-28 18:53:41 -0500
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2011-12-28 18:53:41 -0500
+Served asset /user.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2011-12-28 18:53:41 -0500
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/message.js?body=1" for 127.0.0.1 at 2011-12-28 18:53:41 -0500
+Served asset /message.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/task.js?body=1" for 127.0.0.1 at 2011-12-28 18:53:41 -0500
+Served asset /task.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/user.js?body=1" for 127.0.0.1 at 2011-12-28 18:53:41 -0500
+Served asset /user.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2011-12-28 18:53:41 -0500
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/index" for 127.0.0.1 at 2011-12-28 18:53:46 -0500
+  Processing by UserController#index as HTML
+  [1m[36m (0.2ms)[0m  [1mSELECT 1 FROM "users" WHERE (activesess = 'g_5727345458207133') LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE (activesess = 'g_5727345458207133') LIMIT 1
+Rendered user/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 52ms (Views: 5.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/task.css?body=1" for 127.0.0.1 at 2011-12-28 18:53:47 -0500
+Served asset /task.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2011-12-28 18:53:47 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2011-12-28 18:53:47 -0500
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2011-12-28 18:53:47 -0500
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2011-12-28 18:53:47 -0500
+Served asset /user.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/message.css?body=1" for 127.0.0.1 at 2011-12-28 18:53:47 -0500
+Served asset /message.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/message.js?body=1" for 127.0.0.1 at 2011-12-28 18:53:47 -0500
+Served asset /message.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/task.js?body=1" for 127.0.0.1 at 2011-12-28 18:53:47 -0500
+Served asset /task.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/user.js?body=1" for 127.0.0.1 at 2011-12-28 18:53:47 -0500
+Served asset /user.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2011-12-28 18:53:47 -0500
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2011-12-28 18:53:52 -0500
+  Processing by TaskController#history as HTML
+  [1m[36m (0.2ms)[0m  [1mSELECT 1 FROM "users" WHERE (activesess = 'g_5727345458207133') LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE (activesess = 'g_5727345458207133') LIMIT 1
+  [1m[36mTask Load (0.2ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE (uid = '1')[0m
+Rendered task/history.html.erb within layouts/application (21.0ms)
+Completed 200 OK in 55ms (Views: 13.9ms | ActiveRecord: 15.1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2011-12-28 18:53:52 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/message.css?body=1" for 127.0.0.1 at 2011-12-28 18:53:52 -0500
+Served asset /message.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2011-12-28 18:53:52 -0500
+Served asset /user.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/task.css?body=1" for 127.0.0.1 at 2011-12-28 18:53:52 -0500
+Served asset /task.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2011-12-28 18:53:52 -0500
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/message.js?body=1" for 127.0.0.1 at 2011-12-28 18:53:52 -0500
+Served asset /message.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2011-12-28 18:53:52 -0500
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/task.js?body=1" for 127.0.0.1 at 2011-12-28 18:53:52 -0500
+Served asset /task.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/user.js?body=1" for 127.0.0.1 at 2011-12-28 18:53:52 -0500
+Served asset /user.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2011-12-28 18:53:52 -0500
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-12-28 18:55:46 -0500
+  Processing by UserController#index as HTML
+  [1m[36m (0.1ms)[0m  [1mSELECT 1 FROM "users" WHERE (activesess = 'g_5727345458207133') LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE (activesess = 'g_5727345458207133') LIMIT 1
+Rendered user/index.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 62ms (Views: 27.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2011-12-28 18:55:47 -0500
+Served asset /application.css - 304 Not Modified (7ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2011-12-28 18:55:47 -0500
+Served asset /jquery_ujs.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/message.css?body=1" for 127.0.0.1 at 2011-12-28 18:55:47 -0500
+Served asset /message.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/task.css?body=1" for 127.0.0.1 at 2011-12-28 18:55:47 -0500
+Served asset /task.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2011-12-28 18:55:47 -0500
+Served asset /user.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2011-12-28 18:55:47 -0500
+Served asset /jquery.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/message.js?body=1" for 127.0.0.1 at 2011-12-28 18:55:47 -0500
+Served asset /message.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/task.js?body=1" for 127.0.0.1 at 2011-12-28 18:55:47 -0500
+Served asset /task.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/user.js?body=1" for 127.0.0.1 at 2011-12-28 18:55:47 -0500
+Served asset /user.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2011-12-28 18:55:47 -0500
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2011-12-28 18:55:49 -0500
+  Processing by TaskController#history as HTML
+  [1m[36m (0.2ms)[0m  [1mSELECT 1 FROM "users" WHERE (activesess = 'g_5727345458207133') LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE (activesess = 'g_5727345458207133') LIMIT 1
+  [1m[36mTask Load (0.2ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE (uid = '1')[0m
+Rendered task/history.html.erb within layouts/application (10.5ms)
+Completed 200 OK in 63ms (Views: 17.9ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2011-12-28 18:55:49 -0500
+Served asset /application.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/task.css?body=1" for 127.0.0.1 at 2011-12-28 18:55:49 -0500
+Served asset /task.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/message.css?body=1" for 127.0.0.1 at 2011-12-28 18:55:49 -0500
+Served asset /message.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2011-12-28 18:55:49 -0500
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2011-12-28 18:55:49 -0500
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2011-12-28 18:55:49 -0500
+Served asset /user.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/message.js?body=1" for 127.0.0.1 at 2011-12-28 18:55:49 -0500
+Served asset /message.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/task.js?body=1" for 127.0.0.1 at 2011-12-28 18:55:49 -0500
+Served asset /task.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/user.js?body=1" for 127.0.0.1 at 2011-12-28 18:55:49 -0500
+Served asset /user.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2011-12-28 18:55:49 -0500
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/contact" for 127.0.0.1 at 2011-12-28 18:55:51 -0500
+  Processing by MessageController#contact as HTML
+  [1m[35m (0.1ms)[0m  SELECT 1 FROM "users" WHERE (activesess = 'g_5727345458207133') LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE (activesess = 'g_5727345458207133') LIMIT 1[0m
+Rendered message/contact.html.erb within layouts/application (29.6ms)
+Completed 200 OK in 63ms (Views: 35.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2011-12-28 18:55:51 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/message.css?body=1" for 127.0.0.1 at 2011-12-28 18:55:51 -0500
+Served asset /message.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2011-12-28 18:55:51 -0500
+Served asset /user.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/task.css?body=1" for 127.0.0.1 at 2011-12-28 18:55:51 -0500
+Served asset /task.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2011-12-28 18:55:51 -0500
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2011-12-28 18:55:51 -0500
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/message.js?body=1" for 127.0.0.1 at 2011-12-28 18:55:51 -0500
+Served asset /message.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/task.js?body=1" for 127.0.0.1 at 2011-12-28 18:55:51 -0500
+Served asset /task.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/user.js?body=1" for 127.0.0.1 at 2011-12-28 18:55:51 -0500
+Served asset /user.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2011-12-28 18:55:51 -0500
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/contact" for 127.0.0.1 at 2011-12-28 18:55:54 -0500
+  Processing by MessageController#contact as HTML
+  [1m[35m (0.1ms)[0m  SELECT 1 FROM "users" WHERE (activesess = 'g_5727345458207133') LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE (activesess = 'g_5727345458207133') LIMIT 1[0m
+Rendered message/contact.html.erb within layouts/application (46.9ms)
+Completed 200 OK in 65ms (Views: 53.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2011-12-28 18:55:54 -0500
+Served asset /application.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/task.css?body=1" for 127.0.0.1 at 2011-12-28 18:55:54 -0500
+Served asset /task.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/message.css?body=1" for 127.0.0.1 at 2011-12-28 18:55:54 -0500
+Served asset /message.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2011-12-28 18:55:54 -0500
+Served asset /user.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2011-12-28 18:55:54 -0500
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2011-12-28 18:55:54 -0500
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/message.js?body=1" for 127.0.0.1 at 2011-12-28 18:55:54 -0500
+Served asset /message.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/task.js?body=1" for 127.0.0.1 at 2011-12-28 18:55:54 -0500
+Served asset /task.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/user.js?body=1" for 127.0.0.1 at 2011-12-28 18:55:54 -0500
+Served asset /user.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2011-12-28 18:55:54 -0500
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2011-12-28 18:55:55 -0500
+  Processing by TaskController#history as HTML
+  [1m[35m (0.1ms)[0m  SELECT 1 FROM "users" WHERE (activesess = 'g_5727345458207133') LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE (activesess = 'g_5727345458207133') LIMIT 1[0m
+  [1m[35mTask Load (0.2ms)[0m  SELECT "tasks".* FROM "tasks" WHERE (uid = '1')
+Rendered task/history.html.erb within layouts/application (19.4ms)
+Completed 200 OK in 67ms (Views: 44.0ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2011-12-28 18:55:55 -0500
+Served asset /application.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/message.css?body=1" for 127.0.0.1 at 2011-12-28 18:55:55 -0500
+Served asset /message.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/task.css?body=1" for 127.0.0.1 at 2011-12-28 18:55:55 -0500
+Served asset /task.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2011-12-28 18:55:55 -0500
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2011-12-28 18:55:55 -0500
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2011-12-28 18:55:55 -0500
+Served asset /user.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/message.js?body=1" for 127.0.0.1 at 2011-12-28 18:55:55 -0500
+Served asset /message.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/task.js?body=1" for 127.0.0.1 at 2011-12-28 18:55:55 -0500
+Served asset /task.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/user.js?body=1" for 127.0.0.1 at 2011-12-28 18:55:55 -0500
+Served asset /user.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2011-12-28 18:55:55 -0500
+Served asset /application.js - 304 Not Modified (1ms)

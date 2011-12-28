@@ -1,0 +1,38 @@
+<head>
+	<title>Riviere</title>
+</head>
+<body>
+	<h1>User#join</h1>
+		<iframe src="/header.html" width="100%" height="30" scrolling="no" frameborder="0">
+			<p>Enable iframes to view the header.</p>
+		</iframe
+<div>
+	<%= form_tag({:controller => "user", :action => "create"}, :method => "post") do %>
+	<%= label_tag(:ln, "Last Name:") %>
+	<%= text_field_tag(:ln) %>
+	<br/>
+	<%= label_tag(:fn, "First Name:") %>
+	<%= text_field_tag(:fn) %>
+	<br/>
+	<%= label_tag(:em, "Email:") %>
+	<%= text_field_tag(:em) %>
+	<br/>
+	<%= label_tag(:pd, "password:") %>
+	<%= password_field_tag(:pd) %>
+	<br/>
+	<%= label_tag(:og, "Organization:") %>
+	<%= text_field_tag(:og) %>
+	<br/>
+	<%= label_tag(:oa, "Organization Address:") %>
+	<%= text_field_tag(:oa) %>
+	<br/>
+	<%= label_tag(:op, "Organization Postal Code:") %>
+	<%= text_field_tag(:op) %>
+	<br/>
+	<%= submit_tag("Sign Me Up!") %>
+	<% end %>
+</div>
+		<iframe src="/footer.html" width="100%" height="30" scrolling="no" frameborder="0">
+			<p>Enable iframes to view the footer.</p>
+		</iframe>
+</body>

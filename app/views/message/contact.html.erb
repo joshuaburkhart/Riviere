@@ -1,0 +1,27 @@
+<head>
+	<title>Riviere</title>
+</head>
+<body>
+	<h1>Message#contact</h1>
+		<iframe src="/header.html" width="100%" height="30" scrolling="no" frameborder="0">
+			<p>Enable iframes to view the header.</p>
+		</iframe>
+<div>
+	<%= form_tag({:controller => "message", :action => "create"}, :method => "get") do %>
+		<%if @usr.email.nil? %>
+			<%= label_tag(:em, "Email:") %>
+			<%= text_field_tag(:em) %>
+			<br/>
+		<%else%>
+			<%= hidden_field_tag(:em, @usr.email) %>
+		<%end%>
+	<%= label_tag(:msg, "Message:") %>
+	<%= text_area_tag(:msg) %>
+	<br/>
+	<%= submit_tag("Submit") %>
+	<% end %>
+</div>
+		<iframe src="/footer.html" width="100%" height="30" scrolling="no" frameborder="0">
+			<p>Enable iframes to view the footer.</p>
+		</iframe>
+</body>
